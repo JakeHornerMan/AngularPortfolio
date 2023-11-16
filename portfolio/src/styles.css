@@ -89,6 +89,12 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .flex-center-row {
     display: flex;
     flex-direction: row;
@@ -541,4 +547,12 @@ mat-dialog-container {
   31%, 61%, 100% {
     clip-path: var(--clip-four);
   }
+}
+
+.mat-expansion-panel {
+  background-color: white;
+}
+
+.mat-expansion-panel {
+  background-color: none !important;
 }

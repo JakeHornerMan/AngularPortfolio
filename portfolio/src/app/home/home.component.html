@@ -42,7 +42,7 @@
             <a href="https://www.artstation.com/jakehornerman" target="_blank" class="hvr-float-shadow">
                 <img src="/assets/artstation.png" id="social" class="hvr-pulse icons">
             </a>
-            <a href="https://jakehornerman.itch.io/" target="_blank" class="hvr-float-shadow">
+            <a href="https://itch.io/profile/jakehornerman" target="_blank" class="hvr-float-shadow">
                 <img src="/assets/itch.svg" id="social" class="hvr-pulse icons">
             </a>
         </div>
@@ -361,13 +361,127 @@
                         In MasterCard, I hold the position of Software Engineer II at Mastercard, where I work towards the development and maintenance of the In-Control Commercial Platform (ICCP), an active platform built with Java, Spring Framework, and Angular frontend. I have been actively involved in the Smart Data Project, a Business-to-Business software solution for controlling payments for generated virtual cards. 
                     </p>
                 </div>
-                <h2>High Implact Contributions</h2>
+                <h2>High Impact Contributions</h2>
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Health Check Independence
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                The health check system was an endpoint that allowed internal and external customers to check the status of the ICCP application. This functionality was split into endpoints, shallow health returning a simple “status: UP” or “status: DOWN”, and deep health returning an in-depth analysis of all components relating to the ICCP application. These 2 endpoints would gather this information from cached values stored and logged by a background service every 30 seconds.
+                            </p>
+                            <p>
+                                I was tasked with separating these two endpoints making them have independent run times for caching and logging, 5 seconds for shallow, and 5 minutes for deep. Also, I was tasked with having the shallow endpoint return the cached value, while when the deep endpoint was called it would run the health check service independently and return that value.
+                            </p>
+                            <p>
+                                First, I focused on the separation of the Heath check service into two by creating a DeepHealthService class and a ShallowHealthService class, also creating independent flags and variables to support this separation. 
+                            </p>
+                            <p>
+                                Secondly, I used multithreading to create another scheduling task that will be called DeepHealthService and set rescheduling to the DeepHealthSchedulingTime variable created. I also created another cache store and logging functionality for this value returned every 5 minutes. The previous thread handling the health check service was then repurposed to run every 5 seconds with the ShallowHealthService.
+                            </p>
+                            <p>
+                                Finally, I set up the deep endpoint that accessed the cached value, to now do an independent call to my DeepHealthService, and return this value to the end user.
+                            </p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Hashi Migration
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                There are many different applications that come together to make up the ICCP Platform. When each application contacts the other they have a passphrase type validation to verify that another application is from the MasterCard suite of applications. My Team, Vision was in charge of migrating this system to a new solution HashiCorp Vault. We were in charge of migrating CommercialAPI, PurchaseControlUI, CommercialApi Batch, and CommercialApi Report.
+                            </p>
+                            <p>
+                                Mastercard has many different environments where applications are deployed and tested, Stage 1, Stage 2, Performance testing, MTF, MTF2. On top of these servers, we also need to migrate the servers based in the United States and India. We were provided with a ‘Cookbook solution’ by an alternative team on basic settings and procedures we should be doing to migrate servers.
+                            </p>
+                            <p>
+                                As a Team, we had to develop a set of Instructions and Validations that needed to be carried out by members of Mastercard who have in-depth access to all server and Jenkins configurations BizOps. We created Pull Requests for each environment that needs to be merged which will edit the configurations of each of these specific servers. When these instructions are completed we need to create a session with BizOps to carry out our steps and validations to migrate to the desired HashiCorp solution.
+                            </p>
+                            <p>
+                                A major part I played in the Migration sessions with BizOps, was for the 8 servers in India. Mastercard cycles between an Active server set each weekend, 2 sets of 4. Due to our ICCP platform being a business solution, the best time to do this migration was on the weekend. We did the inactive set of 4 servers on Saturday, steps for migration, and validated the application functionality. That evening an alternative team performed with a cutover of making the migrated Hashi servers active, while also making the remaining 4 servers inactive. We then proceeded with the Hashi migration of the remaining server on Sunday.
+                            </p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+
+                <hr class="bottom space-top" style="width:100%;">
+            </div>
+
+            <!-- ================================Ergo================================ -->
+            <div class="box boxColor">
+                <hr class="top" style="width:100%">
+                <div class="flex-row titleBox">
+                    <div>
+                        <h1>Ergo</h1>
+                        <label>Contract: SBCI Customer Hub</label>
+                    </div>
+                    <div class="flex-col">
+                        <img src="/assets/ergo-logo.png" class="icons">
+                        <img src="/assets/sbci-logo.png" class="icons">
+                    </div>
+                    
+                    
+                </div>
+                <div class="flex-row space-bottom titleBox">
+                    <h2>Junior Full Stack Software Developer</h2>
+                    <div class="flex-center-column">
+                        <label>05.2022</label>
+                        <label style="margin: 0 auto;">-</label>
+                        <label>02.2023</label>
+                    </div>
+                </div>
+                <div class="space-bottom">
+                    <h2>Technologies</h2>
+                    <ul class="gradient-list">
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>AngularJS</li>
+                        <li>Spring Boot</li>
+                        <li>PSQL</li>
+                    </ul>
+                </div>
                 <div class="paragraphSpacing space-top">
-                    <h1>Health Check </h1>
                     <p>
-                        
+                        I was employed by Ergo, as a contractor for the Strategic Banking Corporation of Ireland (SBCI) to work on an emerging web application for the Irish Financial market, the SBCI customer hub. This application is a way for small businesses to access support for reduced-rate loans, allow for on-lenders to view and access these loan applications, and a system for the internal SBCI team to accept or deny these funding opportunities. 
                     </p>
                 </div>
+                <h2>High Impact Contributions</h2>
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Application Flow Rework
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+
+                            </p>
+                        </mat-expansion-panel>
+
+                    </mat-accordion>
+
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Responsive CSS framework
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+
+                            </p>
+                        </mat-expansion-panel>
+
+                    </mat-accordion>
+
+                </div>
+
                 <hr class="bottom space-top" style="width:100%;">
             </div>
 
