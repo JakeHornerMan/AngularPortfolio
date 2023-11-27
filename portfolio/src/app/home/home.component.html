@@ -51,6 +51,409 @@
 
     <mat-tab-group mat-stretch-tabs>
 
+        
+
+        <mat-tab [label]="'Work Experience & Education'">
+            
+            <!-- ================================Mastercard================================ -->
+            <div class="box boxColor">
+                <hr class="top" style="width:100%">
+                <div class="flex-row titleBox">
+                    <h1>MasterCard</h1>
+                    <img src="/assets/mastercard-logo.png" class="icons">
+                </div>
+                <div class="flex-row space-bottom titleBox">
+                    <h2>Software Development Engineer II</h2>
+                    <div class="flex-center-column">
+                        <label>02.2023</label>
+                        <label style="margin: 0 auto;">-</label>
+                        <label>Present</label>
+                    </div>
+                </div>
+                <div class="space-bottom">
+                    <h2>Technologies</h2>
+                    <ul class="gradient-list">
+                        <li>Java</li>
+                        <li>Shell Scripting</li>
+                        <li>Linux Administration</li>
+                        <li>Spring Boot</li>
+                        <li>mySQL</li>
+                    </ul>
+                </div>
+                <div class="paragraphSpacing space-top">
+                    <p>
+                        In MasterCard, I hold the position of Software Engineer II, where I work towards the development and maintenance of the In-Control Commercial Payments (ICCP) Platform, an active platform built with Java, Spring Framework, and Angular frontend. I have been actively involved in the Smart Data Project, a ‘Business-to-Business’ software solution for controlling payments for generated virtual cards. 
+                    </p>
+                    <p>
+                        I have made considerable contributions to developing web services for a health check system active in this platform with Java EE and Spring Framework, creating endpoints that will be consumed by both customers and internal teams. 
+                    </p>
+                </div>
+                <h2>High Impact Contributions</h2>
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Health Check Separation
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                The health check system was an endpoint that allowed internal and external customers to check the status of the ICCP application. This functionality was split into endpoints, shallow health returning a simple “status: UP” or “status: DOWN”, and deep health returning an in-depth analysis of all components relating to the ICCP application. These 2 endpoints would gather this information from cached values stored and logged by a background service every 30 seconds.
+                            </p>
+                            <p>
+                                I was tasked with separating these two endpoints functionality, and making them have independent run times for caching and logging, 5 seconds for shallow, and 5 minutes for deep. Also, I was tasked with having the shallow endpoint return the cached value, while the deep endpoint would run the health check service independently and return the current status values.
+                            </p>
+                            <p>
+                                I focused on the separation of the Heath check service into two by creating a DeepHealthService class and a ShallowHealthService class, also creating independent flags and variables to support this separation. 
+                            </p>
+                            <p>
+                                I used multithreading to create another scheduling task, that will be running DeepHealthService. I also created another cache store and logging functionality, for this value to be stored every 5 minutes. The previous thread handling the old implementation of health check service, was then repurposed to run the ShallowHealthService.
+                            </p>
+                            <p>
+                                Finally, I pointed the deep endpoint that accessed the cached value, to now do an independent call to my DeepHealthService, and return this value to the end user.
+                            </p>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Hashi Migration
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                There are many different applications that come together to make up the ICCP Platform. When each application contacts the other they have a passphrase type validation to verify that another application is from the MasterCard suite of applications. My Team, Team Vision was in charge of migrating this system to a new solution HashiCorp Vault. We were in charge of migrating CommercialAPI, PurchaseControlUI, CommercialApi Batch, and CommercialApi Report.
+                            </p>
+                            <p>
+                                Mastercard has many different environments where applications are deployed and tested, Stage 1, Stage 2, Performance testing, MTF, MTF2. On top of these servers, we also need to migrate the servers based in the United States and India. We were provided with a ‘Cookbook solution’ by an alternative team on basic settings and procedures we should be doing to migrate servers.
+                            </p>
+                            <p>
+                                As a Team, we had to develop a set of Instructions and Validations that needed to be carried out by members of Mastercard (BizOps) who have in-depth access to all server and Jenkins configurations. We created Pull Requests for each environment, that merged the new Hashi configurations on each of these specific servers. When these instructions were finalised, we needed to create a CRQ session with BizOps to carry out our steps and validations.
+                            </p>
+                            <p>
+                                A major part I played in the Hashi Migration CRQ sessions with BizOps, was for the 8 servers in India. Mastercard cycles between an Active server set each weekend, 2 sets for 4 application. Due to our ICCP platform being a business solution, the best time to do this migration was on the weekend. We did the inactive set of 4 servers on Saturday, steps for migration, and validated the application functionality. That evening an alternative team performed with a cutover of making the migrated Hashi servers active, while also making the remaining 4 servers inactive. We then proceeded with the Hashi migration of the inactive servers on Sunday.
+                            </p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+
+                <hr class="bottom space-top" style="width:100%;">
+            </div>
+
+            <!-- ================================Ergo================================ -->
+            <div class="box boxColor">
+                <hr class="top" style="width:100%">
+                <div class="flex-row titleBox">
+                    <div>
+                        <h1>Ergo</h1>
+                        <label>Contract: SBCI Customer Hub</label>
+                    </div>
+                    <div class="flex-col">
+                        <img src="/assets/ergo-logo.png" class="icons">
+                        <img src="/assets/sbci-logo.png" class="icons">
+                    </div>
+                </div>
+                <div class="flex-row space-bottom titleBox">
+                    <h2>Junior Full Stack Software Developer</h2>
+                    <div class="flex-center-column">
+                        <label>05.2022</label>
+                        <label style="margin: 0 auto;">-</label>
+                        <label>02.2023</label>
+                    </div>
+                </div>
+                <div class="space-bottom">
+                    <h2>Technologies</h2>
+                    <ul class="gradient-list">
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>AngularJS</li>
+                        <li>Spring Boot</li>
+                        <li>PSQL</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+                <div class="paragraphSpacing space-top">
+                    <p>
+                        I was employed by Ergo, as a contractor for the Strategic Banking Corporation of Ireland (SBCI) to work on an emerging web application for the Irish Financial market, the SBCI customer hub. This application is a way for small businesses to access support for reduced-rate loans, allow for on-lenders to view and access these loan applications, and a system for the internal SBCI team to accept or deny these funding opportunities. 
+                    </p>
+                </div>
+                <h2>High Impact Contributions</h2>
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Application Flow Rework
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                There were several different loan schemes available for customers using the SBCI customer hub, where a user could select and fill out various pages to see if they were eligible for a reduced-rate loan. When a user selects a scheme it has a hard-coded set of eight pages that would need to be completed in order to apply for that loan. The introduction of the ‘Ukraine Credit Guarantee Scheme’ aimed at providing financial aid to businesses affected by the Ukraine crisis, the business needs required a new page progression to calculate if a customer was eligible for a subsidized loan.
+                            </p>
+                            <p>
+                                I created a new component that allows the loan application to take in the scheme name and populate the application with the necessary components, decouple the stepper functionality from the to allow it to be populated with the passed-on information, and also allow for reused pages from other schemes to be populated with necessary legal text for it to be used in multiple scheme types.
+                            </p>
+                            <p>
+                                This system has been continued, and used to support many different loan application schemes.
+                            </p>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Responsive CSS framework
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                Before the release of the Customer Hub application, a major target for us was to restructure the design to fit all devices and be responsive to all screen sizes. When I joined the team I led the process with our UX designer to form a system using Flexbox CSS. Our goal was to keep the original design flow and philosophy while allowing smaller devices to be visible and intuitive.
+                            </p>
+                            <p>
+                                I created a clear class-based system that allowed us to cut down on rewriting CSS code for each Angular component. We could then call clearly defined CSS classes and modifiers to allow each box of content to scale and restructure to allow the end user to access the app on any device. 
+                            </p>
+                            <p>
+                                Before release, we managed to restructure all of the customer-facing pages which include the login, loan application process pages, and the main menu with sub-menus. After release, we continued to bring the Flexbox CSS system to all other users including on lender and approvers.
+                            </p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+
+                <hr class="bottom space-top" style="width:100%;">
+            </div>
+
+            <div class="box boxColor">
+                <hr class="top" style="width:100%">
+                <div class="flex-row titleBox">
+                    <div>
+                        <h1>usheru</h1>
+                    </div>
+                    <div class="flex-col">
+                        <img src="/assets/usheru-logo.png" class="icons">
+                    </div>
+                </div>
+                <div class="flex-row space-bottom titleBox">
+                    <h2>Full Stack Software Developer Intern</h2>
+                    <div class="flex-center-column">
+                        <label>02.2020</label>
+                        <label style="margin: 0 auto;">-</label>
+                        <label>08.2020</label>
+                    </div>
+                </div>
+                <div class="space-bottom">
+                    <h2>Technologies</h2>
+                    <ul class="gradient-list">
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>PSQL</li>
+                        <li>Linux Scripting</li>
+                    </ul>
+                </div>
+                <div class="paragraphSpacing space-top">
+                    <p>
+                        Usheru is a film industry marketing and web services company, they provide many web solutions for film festivals, cinema ticketing services, and film online marketing. I was taken on as a Software Development Intern for six months. Here, I mainly worked on an application that was used to generate web pages and services that would provide ticket booking and show times. This application was created using Java, and we did some work on the generated pages using custom HTML and CSS.
+                    </p>
+                </div>
+                <h2>High Impact Contributions</h2>
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    TaskLogs
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                In Usheru a lot of information was scraped from the web to keep their internal ticketing system functional, this would be done through a shell script that would give output in the console if each process was successful. The information taken varied from showtimes, ticket numbers, seat information, streaming services, and review ratings. The issue with the current implementation was that it was only visible to the developers on the Usheru team if these processes had been run successfully or not.
+                            </p>
+                            <p>
+                                I was tasked with creating a page for an internal admin user at usheru called ‘TaskLogs’, this contained various information for each task run by the information gathering shell script such as start time, end time, total time, did it completed successfully, how many records did it gather, and a JSON file output to see the record gathered.
+                            </p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+
+                <hr class="bottom space-top" style="width:100%;">
+            </div>
+
+            <div style="display: flex; flex-direction: row; justify-content: center;">
+                <h1>Education And Training</h1>
+            </div>
+
+            <div class="box boxColor">
+                <hr class="top" style="width:100%">
+                <div class="flex-row titleBox">
+                    <div>
+                        <h1>Albany Beck Pioneer’s Program</h1>
+                    </div>
+                    <div class="flex-col">
+                        <img src="/assets/albany-logo.png" class="icons">
+                    </div>
+                </div>
+                <div class="flex-row space-bottom titleBox">
+                    <h2>Full-Stack Java Training Certificate</h2>
+                    <div class="flex-center-column">
+                        <label>08.2021</label>
+                        <label style="margin: 0 auto;">-</label>
+                        <label>02.2022</label>
+                    </div>
+                </div>
+                <div class="space-bottom">
+                    <h2>Technologies</h2>
+                    <ul class="gradient-list">
+                        <li>Java</li>
+                        <li>Spring Framework</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="paragraphSpacing space-top">
+                    <p>
+                        The Albany Beck Pioneers Program was a six-month intensive training program, which I attended directly after finishing my degree at The National College of Ireland. The aim of the program was to teach Java EE, SQL, and Spring Framework to graduates looking for employment in the technology industry. 
+                    </p>
+                    <p>
+                        Albany Beck had a main focus on the financial industry and would provide us with interview opportunities with various UK financial services.
+                    </p>
+                    <p>
+                        During training, we focused on the beginning of Java development, object-oriented programming, databases, database management, Spring Boot, Microservices with Spring Web, Authentication with Spring Security, Spring JDBC, and Spring MVC. Throughout the training we created many applications, with a final project created in the last week, which was a trading application. This application is documented on the ‘Software Projects Tab’ under the name ‘Stock Trading Web Application’.
+                    </p>
+                </div>
+
+                <hr class="bottom space-top" style="width:100%;">
+            </div>
+
+            <div class="box boxColor">
+                <hr class="top" style="width:100%">
+                <div class="flex-row titleBox">
+                    <div>
+                        <h1>National College of Ireland</h1>
+                    </div>
+                    <div class="flex-col">
+                        <img src="/assets/nci-logo.png" class="icons">
+                    </div>
+                </div>
+                <div class="flex-row space-bottom titleBox">
+                    <h2>BSc (Honours) in Computer Science</h2>
+                    <div class="flex-center-column">
+                        <label>08.2016</label>
+                        <label style="margin: 0 auto;">-</label>
+                        <label>05.2021</label>
+                    </div>
+                </div>
+                <!-- <div class="space-bottom">
+                    <h2>Technologies</h2>
+                    <ul class="gradient-list">
+                        <li>Java</li>
+                        <li>Spring Framework</li>
+                        <li>SQL</li>
+                    </ul>
+                </div> -->
+                <div class="paragraphSpacing space-top">
+                    <p>
+                        I achieved a Grade: of 2:1 in my Bachelor's Degree in Computer Science in National College of Ireland. I specialized in Software Development. Here are some of the modules and projects I completed in my final 2 years.
+                    </p>
+                </div>
+
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    4th Year Modules
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="flex-col space-top">
+                                <h3>Software Project - Roadster Run project (included in the 'Software Projects' tab)</h3>
+                                <div>
+                                    <a class="fillLink" href="https://github.com/JakeHornerMan/Roadster-Run" target="_blank">Link to GitHub Repo</a> 
+                                </div>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Distributed Systems - Heart Attack Risk factor (Java & Grpc application)</h3>
+                                <div class="space-top">
+                                    <a class="fillLink" href="https://github.com/JakeHornerMan/Distributed-Systems-Project" target="_blank">Link to GitHub Repo</a> 
+                                </div>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Artificial Intelligence - Chess game (Java) </h3>
+                                <div class="space-top">
+                                    <a class="fillLink" href="https://github.com/JakeHornerMan/Chess-Project" target="_blank">Link to GitHub Repo</a> 
+                                </div>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Data Application Development - Entertainment Industry Stock market analysis (R & Python)</h3>
+                                <div class="space-top">
+                                    <a class="fillLink" href="https://github.com/JakeHornerMan/Map-Reduce-Stock-Market-Averages" target="_blank">Link to GitHub Repo</a> 
+                                </div>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Multimedia and Mobile Application Development - Uptime productivity app (Kotlin)</h3>
+                            </div>
+                        </mat-expansion-panel>
+
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    3rd Year Modules
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <div class="flex-col space-top">
+                                <h3>Work Placement - usheru</h3>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Web Services and API Development - (Movies service API C# .NET)</h3>
+                                <div class="space-top">
+                                    <a class="fillLink" href="https://github.com/JakeHornerMan/Api-Movies-On-Demand" target="_blank">Link to GitHub Repo</a> 
+                                </div>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Cloud Application Development - VoteGems web app (Ruby on Rails)</h3>
+                                <div class="space-top">
+                                    <a class="fillLink" href="https://github.com/JakeHornerMan/VoteGems" target="_blank">Link to GitHub Repo</a> 
+                                </div>
+                            </div>
+                            <div class="flex-col space-top">
+                                <h3>Team Project - SnapTravelPop web app (PHP & HTML & CSS)</h3>
+                                <div class="space-top">
+                                    <a class="fillLink" href="https://github.com/JakeHornerMan/Snap-Travel-Pop" target="_blank">Link to GitHub Repo</a> 
+                                </div>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Advanced Internet Technologies</h3>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Usability Design</h3>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Strategic Management</h3>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Advanced Programming</h3>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Advanced Databases</h3>
+                            </div>
+            
+                            <div class="flex-col space-top">
+                                <h3>Wireless Networking</h3>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+
+                <hr class="bottom space-top" style="width:100%;">
+            </div>
+
+        </mat-tab>
+
         <mat-tab [label]="'Software Projects'" class="space-top">
             <!-- ================================3rd Person Character Controller================================ -->
             <div class="box boxColor">
@@ -72,13 +475,13 @@
                     </ul>
                 </div>
                 <div class="paragraphSpacing space-top">
-                    <p>'Dark Souls' inspired 3rd Person Character controller to practice on programming 3D character controllers.</p>
+                    <p>I created a ‘Dark Souls’ inspired third-person character controller to practice my unity 3D programming.</p>
                 </div>
                 <div class="space-top flex-center-column iframe-container">
                     <iframe class="responsive-iframe" src="https://www.youtube.com/embed/RvzV5sXNClA?si=fDAbPJMJAVOcNNwt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <div class="paragraphSpacing space-top">
-                    <p>This project included a functional camera with Collision. All the inputs have also been mapped to the controller</p>
+                    <p>This project included a function camera with Collision. All the inputs have also been mapped to the controller.</p>
                 </div>
                 <div class="flex-row space-top">
                     <a class="fillLink" href="https://github.com/JakeHornerMan/RougeSoulsLike"  target="_blank">Link to GitHub Repo</a> 
@@ -105,14 +508,19 @@
                         <li>Blender</li>
                         <li>Google AR Core</li>
                     </ul>
-                    <p>Roadster Run was my final year project during my time at NCI. It is a mobile phone game with motion controls and Augmented reality functionality.</p>
+                    <p>
+                        Roadster Run was my final year project during my time at the National College of Ireland. It is a mobile phone game with motion controls and augmented reality (“AR”)  functionality.
+                    </p>
                     <img src="/assets/RadsterRun.png" style="width: 100px;" class="responsive-image">
                 </div>
 
                 <div class="flex-col space-top">
                     <div class="left-box" style="margin-right:0.5rem">
                         <h2>Gameplay</h2>
-                        <p>The gameplay is a car that moves on a procedurally generated road, where the enemy will come to attack the player.</p>
+                        <p>
+                            The gameplay involves a car that moves on a procedurally generated road, where the enemy will come to attack the player.
+                            The player’s car is controlled by rotating the phone left or right to change lanes. The player can also shoot at any oncoming enemy car to gain points and dispatch them.
+                        </p>
                     </div>
                     <div class="right-box iframe-container">
                         <iframe class="responsive-iframe" src="https://www.youtube.com/embed/vYrNn3dqbnI?si=a6ioFEiPhu43km1W" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            
@@ -122,7 +530,9 @@
                 <div class="flex-col space-top">
                     <div class="left-box" style="margin-right:0.5rem">
                         <h2>Customization</h2>
-                        <p>The player can also customize their player car, which is reflected in the main game and AR functionality.</p>
+                        <p>
+                            The player can also customize their player car, which is reflected in the main game and AR functionality.
+                        </p>
                     </div>
                     <div class="right-box iframe-container">
                         <iframe class="responsive-iframe" src="https://www.youtube.com/embed/oRja2b9bjwM?si=EdrG8M3WVmnXVtYX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -140,7 +550,7 @@
                 </div>
 
                 <div class="flex-col space-top">
-                    <p>All art assets for the game were created in Blender.</p>
+                    <p>I have also created all art assets for the game in Blender.</p>
                     <img src="/assets/RoadsterRunBlender.png" style="width: 400px;" class="responsive-image">
                 </div>
                 <div class="flex-row space-top">
@@ -172,7 +582,10 @@
                         <li>Adobe Photoshop</li>
                     </ul>
                     <p>
-                        Blobber is a competitive platformer where players control an escaped alien jumping on scientists for points. The Player will need to dodge fireballs from the hazmat enemy that is flying in the sky to conserve health. ‘Classic’ mode is a time trial mode where the player completes for points, and ‘Floor is Lava’ mode will damage the player when he touches the floor. There is a leaderboard integrated with ‘Google Play Games’, which allows players to complete on each mode, and an opt-in Ad that allows the player to gain 1 extra hp.
+                        Blobber is a competitive platformer where players play as an escaped alien jumping on scientists for points. The player will need to dodge fireballs, which are being shot by a hazmat enemy flying in the sky, in order to conserve health. 
+                    </p>
+                    <p>
+                        ‘Classic’ mode is a time trial mode where the player completes for points. The ‘Floor is Lava’ mode will damage the player when he touches the floor. There is a leaderboard integrated with ‘Google Play Games’, which allows players to compete in each mode. There is also an opt-in advertisement that allows the player to gain one extra health point.
                     </p>
                 </div>
                 <div class="space-top iframe-container">
@@ -200,7 +613,7 @@
                         <li>Spring Web</li>
                     </ul>
                     <p>
-                        This is a project I made to showcase my knowledge of Microservices, Spring Boot, OOP, and MVC framework. I create a set of services that allows a user to create an account, sign in, and withdraw money in the form of notes (50s, 20s, 10s, and 5s).
+                        This is a project I made to showcase my knowledge of Microservices, Spring Boot, OOP, and MVC framework. I created a set of services that allows a user to create an account, sign in, and withdraw money in the form of notes (50s, 20s, 10s, and 5s).
                     </p>
                 </div>
                 <div class="flex-row space-top">
@@ -229,10 +642,10 @@
                         <li>Unity WebGL</li>
                     </ul>
                     <p>
-                        This is a game created in 7 days for the 'Weekly Game Jam' 203, theme 'Eat The Enemy'. This game is created by the Team of Joshua Hall and Jake Horner. This is an action stealth puzzle game.
+                        This is a game that was created in seven days for the 'Weekly Game Jam' 203. The theme for this game jam was 'Eat The Enemy'. My self and another game designer collaborated on this project.
                     </p>
                     <p>
-                        The Players main goal is to make it to the finish line, and avoids enemies ‘Blobbers’ and ‘Floating Eyes’ from spotting them. It seems straight foreward, but the catch is the Player can only cross tiles marked by a specific color, after consuming a ‘Blobbler’ type enemy of the corresponding color.
+                        Shy Chomper is an action stealth puzzle game, where the player avoids the gaze of the enemy ‘Blobbers’, and ‘Floating Eyes’. The player can only cross tiles marked by a specific color, by consuming a ‘Blobbler’ of the corresponding color.
                     </p>
                 </div>
                 <div class="space-top iframe-container">
@@ -274,7 +687,7 @@
                         <li>mySQL</li>
                     </ul>
                     <p>
-                        This Stock Trading platform web application was created using Java, SQL, and Spring Framework was created with a team of 4 during I led during my time with Albany Beck’s Pioneer Program. The application was to simulate online stock traders/clients, where users can place orders (BUY & SELL) for trading, view their order status, view the trade order history, and access their asset purchases in the wallet.
+                        This stock trading platform web application was created using Java, SQL, and Spring Framework. The application was created with a team of four, which was led by me, during my time in the Albany Beck’s Pioneer Program. The application was created to simulate online stock traders/clients, where users can place orders (BUY & SELL) for trading, view their order status, view the trade order history, and access their asset purchases in the wallet.
                     </p>
                 </div>
                 <div class="space-top iframe-container">
@@ -290,11 +703,11 @@
             <div class="box boxColor">
                 <hr class="top" style="width:100%">
                 <div class="flex-row space-bottom titleBox">
-                    <h1>Stock Trading Web Application</h1>
+                    <h1>Scrambled Eggs</h1>
                     <div class="flex-center-column">
                         <label>07.2023</label>
                         <label style="margin: 0 auto;">-</label>
-                        <label>In Progress</label>
+                        <label>In-Progress</label>
                     </div>
                 </div>
                 <div class="space-bottom">
@@ -326,164 +739,6 @@
 
                 <hr class="bottom space-top" style="width:100%;">
     </div>
-
-        </mat-tab>
-
-        <mat-tab [label]="'Work Experience'">
-            
-            <!-- ================================Mastercard================================ -->
-            <div class="box boxColor">
-                <hr class="top" style="width:100%">
-                <div class="flex-row titleBox">
-                    <h1>MasterCard</h1>
-                    <img src="/assets/mastercard-logo.png" class="icons">
-                </div>
-                <div class="flex-row space-bottom titleBox">
-                    <h2>Software Development Engineer II</h2>
-                    <div class="flex-center-column">
-                        <label>02.2023</label>
-                        <label style="margin: 0 auto;">-</label>
-                        <label>Present</label>
-                    </div>
-                </div>
-                <div class="space-bottom">
-                    <h2>Technologies</h2>
-                    <ul class="gradient-list">
-                        <li>Java</li>
-                        <li>Shell Scripting</li>
-                        <li>Linux Administration</li>
-                        <li>Spring Boot</li>
-                        <li>mySQL</li>
-                    </ul>
-                </div>
-                <div class="paragraphSpacing space-top">
-                    <p>
-                        In MasterCard, I hold the position of Software Engineer II at Mastercard, where I work towards the development and maintenance of the In-Control Commercial Platform (ICCP), an active platform built with Java, Spring Framework, and Angular frontend. I have been actively involved in the Smart Data Project, a Business-to-Business software solution for controlling payments for generated virtual cards. 
-                    </p>
-                </div>
-                <h2>High Impact Contributions</h2>
-                <div class="space-top">
-                    <mat-accordion>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Health Check Independence
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <p>
-                                The health check system was an endpoint that allowed internal and external customers to check the status of the ICCP application. This functionality was split into endpoints, shallow health returning a simple “status: UP” or “status: DOWN”, and deep health returning an in-depth analysis of all components relating to the ICCP application. These 2 endpoints would gather this information from cached values stored and logged by a background service every 30 seconds.
-                            </p>
-                            <p>
-                                I was tasked with separating these two endpoints making them have independent run times for caching and logging, 5 seconds for shallow, and 5 minutes for deep. Also, I was tasked with having the shallow endpoint return the cached value, while when the deep endpoint was called it would run the health check service independently and return that value.
-                            </p>
-                            <p>
-                                First, I focused on the separation of the Heath check service into two by creating a DeepHealthService class and a ShallowHealthService class, also creating independent flags and variables to support this separation. 
-                            </p>
-                            <p>
-                                Secondly, I used multithreading to create another scheduling task that will be called DeepHealthService and set rescheduling to the DeepHealthSchedulingTime variable created. I also created another cache store and logging functionality for this value returned every 5 minutes. The previous thread handling the health check service was then repurposed to run every 5 seconds with the ShallowHealthService.
-                            </p>
-                            <p>
-                                Finally, I set up the deep endpoint that accessed the cached value, to now do an independent call to my DeepHealthService, and return this value to the end user.
-                            </p>
-                        </mat-expansion-panel>
-
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Hashi Migration
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <p>
-                                There are many different applications that come together to make up the ICCP Platform. When each application contacts the other they have a passphrase type validation to verify that another application is from the MasterCard suite of applications. My Team, Vision was in charge of migrating this system to a new solution HashiCorp Vault. We were in charge of migrating CommercialAPI, PurchaseControlUI, CommercialApi Batch, and CommercialApi Report.
-                            </p>
-                            <p>
-                                Mastercard has many different environments where applications are deployed and tested, Stage 1, Stage 2, Performance testing, MTF, MTF2. On top of these servers, we also need to migrate the servers based in the United States and India. We were provided with a ‘Cookbook solution’ by an alternative team on basic settings and procedures we should be doing to migrate servers.
-                            </p>
-                            <p>
-                                As a Team, we had to develop a set of Instructions and Validations that needed to be carried out by members of Mastercard who have in-depth access to all server and Jenkins configurations BizOps. We created Pull Requests for each environment that needs to be merged which will edit the configurations of each of these specific servers. When these instructions are completed we need to create a session with BizOps to carry out our steps and validations to migrate to the desired HashiCorp solution.
-                            </p>
-                            <p>
-                                A major part I played in the Migration sessions with BizOps, was for the 8 servers in India. Mastercard cycles between an Active server set each weekend, 2 sets of 4. Due to our ICCP platform being a business solution, the best time to do this migration was on the weekend. We did the inactive set of 4 servers on Saturday, steps for migration, and validated the application functionality. That evening an alternative team performed with a cutover of making the migrated Hashi servers active, while also making the remaining 4 servers inactive. We then proceeded with the Hashi migration of the remaining server on Sunday.
-                            </p>
-                        </mat-expansion-panel>
-                    </mat-accordion>
-                </div>
-
-                <hr class="bottom space-top" style="width:100%;">
-            </div>
-
-            <!-- ================================Ergo================================ -->
-            <div class="box boxColor">
-                <hr class="top" style="width:100%">
-                <div class="flex-row titleBox">
-                    <div>
-                        <h1>Ergo</h1>
-                        <label>Contract: SBCI Customer Hub</label>
-                    </div>
-                    <div class="flex-col">
-                        <img src="/assets/ergo-logo.png" class="icons">
-                        <img src="/assets/sbci-logo.png" class="icons">
-                    </div>
-                    
-                    
-                </div>
-                <div class="flex-row space-bottom titleBox">
-                    <h2>Junior Full Stack Software Developer</h2>
-                    <div class="flex-center-column">
-                        <label>05.2022</label>
-                        <label style="margin: 0 auto;">-</label>
-                        <label>02.2023</label>
-                    </div>
-                </div>
-                <div class="space-bottom">
-                    <h2>Technologies</h2>
-                    <ul class="gradient-list">
-                        <li>Java</li>
-                        <li>JavaScript</li>
-                        <li>AngularJS</li>
-                        <li>Spring Boot</li>
-                        <li>PSQL</li>
-                    </ul>
-                </div>
-                <div class="paragraphSpacing space-top">
-                    <p>
-                        I was employed by Ergo, as a contractor for the Strategic Banking Corporation of Ireland (SBCI) to work on an emerging web application for the Irish Financial market, the SBCI customer hub. This application is a way for small businesses to access support for reduced-rate loans, allow for on-lenders to view and access these loan applications, and a system for the internal SBCI team to accept or deny these funding opportunities. 
-                    </p>
-                </div>
-                <h2>High Impact Contributions</h2>
-                <div class="space-top">
-                    <mat-accordion>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Application Flow Rework
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <p>
-
-                            </p>
-                        </mat-expansion-panel>
-
-                    </mat-accordion>
-
-                    <mat-accordion>
-                        <mat-expansion-panel>
-                            <mat-expansion-panel-header>
-                                <mat-panel-title>
-                                    Responsive CSS framework
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <p>
-
-                            </p>
-                        </mat-expansion-panel>
-
-                    </mat-accordion>
-
-                </div>
-
-                <hr class="bottom space-top" style="width:100%;">
-            </div>
 
         </mat-tab>
 
