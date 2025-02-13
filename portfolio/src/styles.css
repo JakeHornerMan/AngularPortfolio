@@ -293,6 +293,11 @@ mat-dialog-container {
   margin-bottom: 1rem;
 }
 
+.iconsSVG{
+  max-width: 250px;
+  margin-bottom: 1rem;
+}
+
 .buttonContainer{
   display:flex;
   flex-direction: row;

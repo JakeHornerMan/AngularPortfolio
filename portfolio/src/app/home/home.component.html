@@ -55,6 +55,86 @@
 
         <mat-tab [label]="'Work Experience & Education'">
             
+             <!-- ================================SuperNimbus================================ -->
+             <div class="box boxColor">
+                <hr class="top" style="width:100%">
+                <div class="flex-col titleBox">
+                    <img src="/assets/SuperNimbus.svg" class="iconsSVG" style="background-color: rgb(51, 51, 121); padding: 5px;">
+                </div>
+                <div class="flex-row space-bottom titleBox">
+                    <h2>Software Development Engineer</h2>
+                    <div class="flex-center-column">
+                        <label>06.2026</label>
+                        <label style="margin: 0 auto;">-</label>
+                        <label>Present</label>
+                    </div>
+                </div>
+                <div class="space-bottom">
+                    <h2>Technologies</h2>
+                    <ul class="gradient-list">
+                        <li>JavaScript</li>
+                        <li>C#</li>
+                        <li>C++</li>
+                        <li>TypeScript</li>
+                        <li>SQL</li>
+                        <li>PostgreSql</li>
+                        <li>Unity</li>
+                        <li>Unreal</li>
+                    </ul>
+                </div>
+                <div class="paragraphSpacing space-top">
+                    <p>
+                        SuperNimbus provided back end services for gaming projectsby creat custom project to suit the customers need. The application were hosted and created using AWS framework 
+                    </p>
+                    <p>
+                        I have worked on is USM's 'Catan Universe', by provideing custom RPCs, front end updates, and server stress testing automation. I have also worked on a up and coming multiplayer shooter Cathedral's 'The Bornless', providing authentication, user statistics, and in-app purchases.
+                    </p>
+                </div>
+                <h2>High Impact Contributions</h2>
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Twitch Service Integration (The Bornless)
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                One of the requirements for ‘The Bornless’ was to have full Twitch integration to allow users to claim in-game items from watching streams of the game. This system was fully integrated using the Playfab system for authentication and user management with the CloudScript functionality in JavaScript.
+                            </p>
+                            <p>
+                                The system will gather all ‘Claimed’ status items from the attached Twitch account. Grant them to the player Inventory, and set them to ‘Fulfilled’ status. Of course, contacting multiple endpoints we need fallback mechanisms when there is a failure along the progress of the system, All failed Items are stored against the player's title data in a small JSON object. This object will be retried once the system is called, and be cleared when all items have been successfully granted to the player.
+                            </p>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Economy Updates for granting Items (The Bornless)
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                The Item grants system for ‘The Bornless’ backend project was previously implemented using the legacy Economy V1 with no fallback for any item failures, this could cause a major problem with the user not receiving items when they should if an endpoint failed. I was tasked with the implementation of a system that would store any failures and retry them at a later date. While I was developing this system I updated all instances of granting items to the new Economy V2 endpoints.
+                            </p>
+                            <p>
+                                This system would store any failed item information in a new Dynamo DB table while it was attempting to grant items to each user. I managed to flesh out the common reasons why these items would fail and when recognized would attach it to the table, for example, if an item was attempted to be granted that was not created in the Econmy system on Playfab. A second socket endpoint was created on this back project to be called that would once again retry these failed items.
+                            </p>
+                        </mat-expansion-panel>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Privacy Popup Updates (Catan | IOS)
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                A policy change came through for the IOS store that directly affected the ‘Catan Universe’ application and its release of the next update. The solution for this was to add an info popup at the start of each new install of the application. Also, it was required that this popup would be translated into 6 other popular languages.
+                            </p>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
+
+                <hr class="bottom space-top" style="width:100%;">
+            </div>
+
             <!-- ================================Mastercard================================ -->
             <div class="box boxColor">
                 <hr class="top" style="width:100%">
@@ -67,7 +147,7 @@
                     <div class="flex-center-column">
                         <label>02.2023</label>
                         <label style="margin: 0 auto;">-</label>
-                        <label>Present</label>
+                        <label>06.2024</label>
                     </div>
                 </div>
                 <div class="space-bottom">
@@ -464,7 +544,7 @@
                     <div class="flex-center-column">
                         <label>07.2023</label>
                         <label style="margin: 0 auto;">-</label>
-                        <label>In-Progress</label>
+                        <label>07.2023</label>
                     </div>
                 </div>
                 <div class="space-bottom">
@@ -474,26 +554,48 @@
                         <li>C#</li>
                         <li>Aesprite</li>
                         <li>Unity Web GL</li>
+                        <li>Steamworks API</li>
                     </ul>
-                    <p>
-                        This was a team submission to GMTK Game Jam 2024, which placed 263rd out of nearly 7000 submitted games. The theme of the Game Jam was “roles reversed”, so we decided to do a reverse on the game ‘Crossy Road’. In ‘Crossy Road’, the player's aim is to control a chicken to get across a road, in our demo ‘Scrambled Eggs’ the player will place cars to stop waves of chicken from crossing the Road. We expanded on this idea with different car types and different chicken types.
-                    </p>
-                </div>
-                <div class="space-top iframe-container">
-                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/bfF7HR8LakM?si=77e-nrBmEF2u2SYP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="flex-row space-top">
-                    <a class="fillLink" href="https://thejackxbl.itch.io/scrambled-eggs"  target="_blank">Play the Game here</a> 
+                    
                 </div>
                 <div class="space-top">
-                    <p>
-                        The development team I led on this project worked really well together, so we have since decided to continue developing this idea into a full release.We are creating iteration with interesting Chicken roles, Car variations, and Road types. We plan to release it on PC and  Mobile.
-                    </p>
+                    <p>This project was made in Unity with C# and Steamworks API, by myself acting as project manager and lead developer, and two other developers, and released on Steam in July of 2024. we received over 15,000 library claims and over 2,500 leaderboard entries. The game is free to Play with no Micro-transactions, so please give it a try </p>
                 </div>
                 <div class="flex-row space-top">
-                    <a class="fillLink" href="https://github.com/JakeHornerMan/GMTKGameJam2023" target="_blank">Link to GitHub Repo</a> 
+                    <a class="fillLink" href="https://store.steampowered.com/app/2906540/Scrambled_Eggs/"  target="_blank">Play The Game Here!</a> 
                 </div>
-
+                <div class="space-top iframe-container">
+                    <p>Check out this video with over 45k views, going through our game and its mechanics.</p>
+                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/tEQdHrRhsv0?si=7ax-1HPV4jS8BFq-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="flex-row space-top">
+                    <a class="fillLink" href="https://github.com/JakeHornerMan/GMTKGameJam2023"  target="_blank">Link to GitHub Repo</a> 
+                </div>
+                <div class="space-top">
+                    <mat-accordion>
+                        <mat-expansion-panel>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    Game Jam Development
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <p>
+                                This was a team submission to GMTK Game Jam 2024, which placed 263rd out of nearly 7000 submitted games. The theme of the Game Jam was “roles reversed”, so we decided to do a reverse on the game ‘Crossy Road’. In ‘Crossy Road’, the player's aim is to control a chicken to get across a road, in our demo ‘Scrambled Eggs’ the player will place cars to stop waves of chicken from crossing the Road. We expanded on this idea with different car types and different chicken types.
+                            </p>
+                            <div class="space-top iframe-container">
+                                <iframe class="responsive-iframe" src="https://www.youtube.com/embed/bfF7HR8LakM?si=77e-nrBmEF2u2SYP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="flex-row space-top">
+                                <a class="fillLink" href="https://thejackxbl.itch.io/scrambled-eggs"  target="_blank">Play the Game Jam Demo here</a> 
+                            </div>
+                            <div class="space-top">
+                                <p>
+                                    The development team I led on this project worked really well together, so we have since decided to continue developing this idea into a full release.We are creating iteration with interesting Chicken roles, Car variations, and Road types. We plan to release it on PC and  Mobile.
+                                </p>
+                            </div>
+                        </mat-expansion-panel>
+                    </mat-accordion>
+                </div>
                 <hr class="bottom space-top" style="width:100%;">
             </div>
 
